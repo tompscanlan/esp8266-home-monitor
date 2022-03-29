@@ -1,7 +1,8 @@
 #include <Arduino.h>
 #include <Scheduler.h>
 
-extern long motion;
+// extern long motion;
+long motion = 0;
 long motionDetect = LOW;
 long motionState = LOW;
 int pinPIR = D5;
@@ -21,29 +22,30 @@ public:
     }
     void loop()
     {
-        Serial.print("Sample PIR...");
-        motionDetect = digitalRead(pinPIR);
-        Serial.println(motionDetect ? "Motion" : "No Motion");
+        delay(100);
+        // Serial.print("Sample PIR...");
+        // motionDetect = digitalRead(pinPIR);
+        // Serial.println(motionDetect ? "Motion" : "No Motion");
 
-        if (motionDetect == HIGH)
-        {
-            delay(debounceMS);
-            if (motionState == LOW)
-            {
-                Serial.println("Switch state to motion");
-                motionState = HIGH;
-                digitalWrite(LED_BUILTIN_AUX, ledON);
-            }
-        }
-        else
-        {
-            delay(debounceMS);
-            if (motionState == HIGH)
-            {
-                Serial.println("Switch state to no motion");
-                motionState = LOW;
-                digitalWrite(LED_BUILTIN_AUX, ledOFF);
-            }
-        }
+        // if (motionDetect == HIGH)
+        // {
+        //     delay(debounceMS);
+        //     if (motionState == LOW)
+        //     {
+        //         Serial.println("Switch state to motion");
+        //         motionState = HIGH;
+        //         digitalWrite(LED_BUILTIN_AUX, ledON);
+        //     }
+        // }
+        // else
+        // {
+        //     delay(debounceMS);
+        //     if (motionState == HIGH)
+        //     {
+        //         Serial.println("Switch state to no motion");
+        //         motionState = LOW;
+        //         digitalWrite(LED_BUILTIN_AUX, ledOFF);
+        //     }
+        // }
     }
 } PIR_task;

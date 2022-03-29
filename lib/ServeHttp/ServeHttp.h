@@ -1,9 +1,11 @@
 
 #include <ESP8266WebServer.h>
 
-// extern float temperature;
-// extern float humidity;
-// extern long motion;
+extern float temperature;
+extern float humidity;
+extern long motion;
+// float temperature = 0;
+// float humidity = 0;
 
 ESP8266WebServer server(80); // Create a webserver object that listens for HTTP request on port 80
 
